@@ -156,7 +156,7 @@
 
 - name: Copy main Caddy config
   template:
-    src: caddy.conf.j2
+    src: "{{ caddy_config_template }}"
     dest: "{{ caddy_config_path }}/{{ caddy_config_file }}"
     owner: root
     group: root
