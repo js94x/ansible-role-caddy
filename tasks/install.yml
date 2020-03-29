@@ -172,6 +172,7 @@
     owner: root
     group: root
     mode: '0644'
+    validate: /usr/local/bin/caddy -validate -conf %s
   with_items:
     - "{{ caddy_config_d }}"
   loop_control:
