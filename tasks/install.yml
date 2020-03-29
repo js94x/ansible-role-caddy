@@ -181,6 +181,7 @@
     - caddy
     - caddy_config
     - caddy_config_d
+  notify: reload caddy
 
 - name: Start and enable Caddy
   service:
