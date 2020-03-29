@@ -6,6 +6,8 @@ caddy_log_path: /var/log/caddy
 caddy_config_path: /etc/caddy
 caddy_config_file: caddy.conf
 caddy_config_template: caddy.conf.j2
+caddy_config_d_template: caddy.conf.d.j2
+caddy_config_d: []
 caddy_root: /usr/share/caddy
 caddy_force_update: no
 caddy_download_custom_build: no

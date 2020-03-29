@@ -156,7 +156,7 @@
 
 - name: Copy main Caddy config
   template:
-    src: "{{ caddy_config_template }}"
+    src: "{{ caddy_config_d_template }}"
     dest: "{{ caddy_config_path }}/{{ caddy_config_file }}"
     owner: root
     group: root
@@ -164,6 +164,22 @@
   tags:
     - caddy
     - caddy_config
+
+- name: Copy additonal Caddy configs to conf.d
+  template:
+    src: "{{ caddy_config_d_template }}"
+    dest: "{{ caddy_config_path }}/conf.d/{{ item.filename }}.conf"
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - "{{ caddy_config_d }}"
+  loop_control:
+    label: "{{ item.filename }}"
+  tags:
+    - caddy
+    - caddy_config
+    - caddy_config_d
 
 - name: Start and enable Caddy
   service:
