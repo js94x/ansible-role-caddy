@@ -156,11 +156,12 @@
 
 - name: Copy main Caddy config
   template:
-    src: "{{ caddy_config_d_template }}"
+    src: "{{ caddy_config_template }}"
     dest: "{{ caddy_config_path }}/{{ caddy_config_file }}"
     owner: root
     group: root
     mode: '0644'
+  notify: reload caddy
   tags:
     - caddy
     - caddy_config
